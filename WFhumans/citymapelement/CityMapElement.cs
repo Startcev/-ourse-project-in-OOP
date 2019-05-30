@@ -8,7 +8,6 @@ namespace Kyrsach.citymapelement
     {
         // широта
         protected double latitude;
-
         public double Latitude
         {
             get { return latitude; }
@@ -25,7 +24,6 @@ namespace Kyrsach.citymapelement
 
         // площадь
         protected double area;
-
         public double Area
         {
             get { return area; }

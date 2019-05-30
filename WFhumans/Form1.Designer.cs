@@ -60,7 +60,6 @@
             this.GW1.Name = "GW1";
             this.GW1.Size = new System.Drawing.Size(621, 200);
             this.GW1.TabIndex = 3;
-            this.GW1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GW1_CellContentClick);
             // 
             // button1
             // 
@@ -89,6 +88,7 @@
             // button2
             // 
             this.button2.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.button2.Enabled = false;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button2.Location = new System.Drawing.Point(257, 299);
             this.button2.Name = "button2";
@@ -100,6 +100,7 @@
             // btSort
             // 
             this.btSort.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.btSort.Enabled = false;
             this.btSort.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btSort.Location = new System.Drawing.Point(497, 229);
             this.btSort.Name = "btSort";
@@ -112,6 +113,7 @@
             // btSearch
             // 
             this.btSearch.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.btSearch.Enabled = false;
             this.btSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btSearch.Location = new System.Drawing.Point(497, 299);
             this.btSearch.Name = "btSearch";
@@ -140,7 +142,6 @@
             this.tbSearch.Size = new System.Drawing.Size(167, 20);
             this.tbSearch.TabIndex = 10;
             this.tbSearch.Text = "Имя для поиска";
-            this.tbSearch.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbSearch_KeyPress);
             // 
             // Form1
             // 

@@ -4,65 +4,68 @@ using System.Linq;
 using System.Text;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
+using Kyrsach.citymapelement;
 
 namespace consHuman
 {
     [Serializable]
     class Store
     {
-        static public void safeObjects(object hum)
+        // лист с элементами
+        private List<CityMapElement> listElement = new List<CityMapElement>();
+        internal List<CityMapElement> ListElement
+        {
+            get { return listElement; }
+
+        }
+
+        // добавление объекта в файл
+        static public void safeObjects(object elements)
         {
             // Создаем поток для записи в файл
-            FileStream myStream = File.Create("humData.dat");
+            FileStream myStream = File.Create("elementsData.dat");
 
             // Помещаем объектный граф в поток в двоичном формате
             BinaryFormatter myBinaryFormat = new BinaryFormatter();
-            myBinaryFormat.Serialize(myStream, hum);
+            myBinaryFormat.Serialize(myStream, elements);
             myStream.Close();
-
         }
+
+        // загрузка объектов
         static public object loadObjects()
         {
             // Создаем поток для записи в файл
-            FileStream myStream = File.OpenRead("humData.dat");
+            FileStream myStream = File.OpenRead("elementsData.dat");
 
             // Помещаем объектный граф в поток в двоичном формате
             BinaryFormatter myBinaryFormat = new BinaryFormatter();
             object obj = myBinaryFormat.Deserialize(myStream);
             myStream.Close();
             return obj;
-
-        }
-        List<Human> listHuman = new List<Human>();
-
-        internal List<Human> ListHuman
-        {
-            get { return listHuman; }
-
         }
 
-        public void addListHuman(Human h)
+        // добавление одного элемента в список
+        public void addListHuman(CityMapElement element)
         {
-            listHuman.Add(h);
-        }
-        public void delListHuman(Human h)
-        {
-            listHuman.Remove(h);
+            listElement.Add(element);
         }
 
-        public Human searchHumanName(string name)
+        // удаление элемента из списка
+        public void delListHuman(CityMapElement element)
         {
-            return listHuman.Find((t) => t.Name == name); //лямбда выражения
+            listElement.Remove(element);
         }
-        public void sortHumanName()
+
+        // поиск
+        public CityMapElement searchElement(int aria)
         {
-            listHuman.Sort((t, t1) => t.Name.CompareTo(t1.Name)); //лямбда выражения 
+            return listElement.Find((t) => t.Area == aria); //лямбда выражения
         }
-        public void outListHuman()
+
+        // сортировака
+        public void sortElement()
         {
-            Console.WriteLine(Human.title());
-            foreach (var x in listHuman)
-                Console.WriteLine(x.getFullInfo());
+            listElement.Sort((t, t1) => t.Area.CompareTo(t1.Area)); //лямбда выражения 
         }
     }
 }
